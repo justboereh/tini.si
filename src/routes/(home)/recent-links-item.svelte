@@ -10,11 +10,10 @@
 	dayjs.extend(utc);
 	dayjs.extend(relative);
 
-	export let storage: Storage<Link> | undefined;
+	// export let storage: Storage<Link> | undefined;
 	export let link: Link;
 	let copied = false;
 
-	console.log(storage);
 </script>
 
 <div

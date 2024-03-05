@@ -37,7 +37,7 @@
 
 			<div class="flex-grow space-y-4 overflow-auto py-4">
 				{#each links.sort((a, b) => b.created - a.created) as link}
-					<RecentLinksItem {link} {storage} />
+					<RecentLinksItem {link} />
 				{/each}
 			</div>
 

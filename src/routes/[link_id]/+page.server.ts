@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import { db } from '$lib/server/db.js';
 import { links } from '$lib/server/db.schema.js';
 import { eq } from 'drizzle-orm';
@@ -10,9 +10,11 @@ export async function load({ params: { link_id } }) {
 		.where(eq(links.id, link_id))
 		.execute();
 
+	console.log(res);
+
 	if (res.length === 0) {
-		error(404, 'Not found');
+		return error(404, 'Not found');
 	}
 
-	return Response.redirect(res[0].location, 301);
+	return redirect(301, res[0].location);
 }
